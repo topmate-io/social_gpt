@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="social_gpt",
-    version="0.0.11",
+    version="0.0.12",
     author="dinesh1301",
     author_email="dinesh@topmate.io",
     description="Social gpt",
