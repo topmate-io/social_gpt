@@ -4,7 +4,7 @@ Once scraped, you can query it with the use of openai.
 
 ## Installation
 Install using following command:
-`pipenv install social-gpt`
+`pip install social-gpt`
 
 ## Setup
 Update the `example.env` and change it's name to `.env`. Add relevant information in the `.env` file.
