@@ -12,7 +12,7 @@ Update the `example.env` and change it's name to `.env`. Add relevant informatio
 ## Creating embeddings
 
 As of now, only youtube is supported. We will be bringing more social media platforms soon. To create embeddings, run the following command:
-
+To get the channel id, go to this [website](https://commentpicker.com/youtube-channel-id.php) and enter the channel url. It will give you the channel id. 
 ``` python
 from social_gpt.ingestion.ingestion import SocialIngestion
 ingestion = SocialIngestion(channel_id, 'youtube')

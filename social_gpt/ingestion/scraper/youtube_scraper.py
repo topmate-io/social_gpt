@@ -4,6 +4,7 @@ from typing import List
 import googleapiclient
 from dotenv import load_dotenv
 from llama_index import Document
+from progress.bar import IncrementalBar
 from youtube_transcript_api import YouTubeTranscriptApi
 
 from social_gpt.ingestion.scraper.social_scraper import SocialScraper
@@ -31,21 +32,21 @@ class YoutubeScraper(SocialScraper):
         youtube = googleapiclient.discovery.build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
                                                   developerKey=os.getenv('YOUTUBE_DEVELOPER_KEY'))
 
-        # request = youtube.search().list(
-        #     part="snippet",
-        #     channelId=self.username,
-        #     maxResults=100,  # Change if needed
-        #     type="video"
-        # )
-        # response = request.execute()
+        request = youtube.search().list(
+            part="snippet",
+            channelId=self.username,
+            maxResults=200,  # Change if needed
+            type="video"
+        )
+        response = request.execute()
 
         transcripts = []
-        # bar = IncrementalBar('Transcribing', max=len(response['items']))
-        for item in ["098cgN5PH0s"]:
-            transcript = YoutubeScraper.get_transcript(item)
+        bar = IncrementalBar('Transcribing', max=len(response['items']))
+        for item in response['items']:
+            transcript = YoutubeScraper.get_transcript(item['id']['videoId'])
             if transcript:
                 transcripts.append(transcript)
-        #     bar.next()
-        # bar.finish()
+            bar.next()
+        bar.finish()
 
         return list(map(lambda transcript: Document(transcript), transcripts))
