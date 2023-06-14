@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+google-api-python-client = "*"
+youtube-transcript-api = "*"
+ipython = "*"
+llama-index = "*"
+s3fs = "*"
+python-dotenv = "*"
+progress = "*"
+social-gpt = "==0.0.2"
+
+[dev-packages]
+pipenv-setup = "*"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.3"
