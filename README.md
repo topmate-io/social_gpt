@@ -25,7 +25,7 @@ Store this `index_id` for querying the embeddings.
 ``` python
 from social_gpt.query.query_helper import QueryHelper
 q = QueryHelper(index_id)
-response = q.query_embeddings('What is the best way to learn python?')
+response = q.query('What is the best way to learn python?')
 print(response)
 ```
 
