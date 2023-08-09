@@ -11,7 +11,7 @@ Update the `example.env` and change it's name to `.env`. Add relevant informatio
 
 ## Creating embeddings
 
-As of now, only youtube is supported. We will be bringing more social media platforms soon. To create embeddings, run the following command:
+As of now, only youtube is supported. Also, as of now, we will scrape 50 videos, which we will extend to all of the videos shortly. We will be bringing more social media platforms soon. To create embeddings, run the following command:
 To get the channel id, go to this [website](https://commentpicker.com/youtube-channel-id.php) and enter the channel url. It will give you the channel id. 
 ``` python
 from social_gpt.ingestion.ingestion import SocialIngestion
@@ -25,7 +25,7 @@ Store this `index_id` for querying the embeddings.
 ``` python
 from social_gpt.query.query_helper import QueryHelper
 q = QueryHelper(index_id)
-response = q.query_embeddings('What is the best way to learn python?')
+response = q.query('What is the best way to learn python?')
 print(response)
 ```
 
