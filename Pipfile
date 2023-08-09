@@ -12,6 +12,7 @@ s3fs = "*"
 python-dotenv = "*"
 progress = "*"
 social-gpt = "==0.0.2"
+tweepy = "*"
 
 [dev-packages]
 pipenv-setup = "*"
